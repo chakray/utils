@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.sass"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/utils/gh-spa.ts"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
