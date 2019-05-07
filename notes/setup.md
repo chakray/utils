@@ -11,8 +11,17 @@ __cli__
 __angular.json__
 ```
   "scripts": [
-+    "node_modules/@chakray/utils/gh-spa/loader.ts"
++    "node_modules/@chakray/utils/gh-spa/redirect.ts"
   ],
+  "assets": [
+    "src/favicon.ico",
+    "src/assets",
++   {
++     "glob": "404.html",
++     "input": "node_modules/@chakray/utils/src/gh-spa",
++     "output": "./"
++   }
+  ]
 ```
 
 cp node_modules/@chakray/utils/gh-spa/404.html src/404.html

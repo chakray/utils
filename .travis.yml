@@ -5,12 +5,18 @@ node_js:
 install:
   - npm i
 script:
+  - export PJ_scope=chakray
+  - export PJ_name=utils
+  - export PJ_src=projects/$PJ_scope/$PJ_name
+  - export PJ_dist=dist/$PJ_scope/$PJ_name
+  - export demo_build=demo${PJ_name^}
   - npm install codecov -g
   - npm run lint
-  - npx ng build @chakray/utils
+  - npx ng build @$PJ_scope/$PJ_name
+  - cp -rf $PJ_src/gh-spa $PJ_dist/
   - npx ng test --watch=false --code-coverage
   - BUILD=`date +%s`; sed -ie "s/BUILD/$BUILD/g" ./src/environments/environment.prod.ts
-  - npx ng build --prod --deploy-url /utils/ --base-href /utils/
+  - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
 cache:
     directories:
       - node_modules
@@ -18,13 +24,13 @@ after_success:
   - codecov
 before_deploy:
   - if [[ $TRAVIS_TAG ]]; then
-      if [[ $PWD != *"dist/chakray/utils" ]]; then
-        cd dist/chakray/utils;
+      if [[ $PWD != *$PJ_dist ]]; then
+        cd $PJ_dist;
       fi;
     fi;
 deploy:
   - provider: pages
-    local-dir: dist/demoUtils
+    local-dir: $demo_build
     github-token: $github
     skip-cleanup: true
     keep-history: true
