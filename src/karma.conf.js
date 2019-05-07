@@ -1,5 +1,6 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+const reporters = process.env.TRAVIS ? ['dots'] : ['progress'];
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
@@ -21,7 +22,7 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['kjhtml'],
+    reporters,
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
