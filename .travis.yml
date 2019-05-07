@@ -9,7 +9,7 @@ script:
   - export PJ_name=utils
   - export PJ_src=projects/$PJ_scope/$PJ_name
   - export PJ_dist=dist/$PJ_scope/$PJ_name
-  - export demo_build=demo${PJ_name^}
+  - export demo_build=dist/demo${PJ_name^}
   - npm install codecov -g
   - npm run lint
   - npx ng build @$PJ_scope/$PJ_name
