@@ -7,11 +7,10 @@ install:
 script:
   - npm install codecov -g
   - npm run lint
-  # - npx ng build @chakray/utils
+  - npx ng build @chakray/utils
   - npx ng test --watch=false --code-coverage
   - BUILD=`date +%s`; sed -ie "s/BUILD/$BUILD/g" ./src/environments/environment.prod.ts
   - npx ng build --prod --deploy-url /utils/ --base-href /utils/
-  - cp src/404.html dist/utils
 cache:
     directories:
       - node_modules

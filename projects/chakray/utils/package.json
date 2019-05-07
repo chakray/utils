@@ -1,0 +1,26 @@
+{
+  "name": "@chakray/utils",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "description": "A collection of ng dev utils",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "utils",
+    "chakray"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakray/utils.git"
+  },
+  "homepage": "https://chakray.github.io/utils",
+  "bugs": {
+    "url": "https://github.com/chakray/utils/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -25,7 +25,16 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "**/*", "input": "node_modules/@chakray/hero/assets", "output": "assets/hero" }
+              {
+                "glob": "404.html",
+                "input": "projects/chakray/utils/src/gh-spa",
+                "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@chakray/hero/assets",
+                "output": "assets/hero"
+              }
             ],
             "styles": [
               "src/styles.sass"
@@ -131,6 +140,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@chakray/utils": {
+      "root": "projects/chakray/utils",
+      "sourceRoot": "projects/chakray/utils/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/chakray/utils/tsconfig.lib.json",
+            "project": "projects/chakray/utils/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/chakray/utils/src/test.ts",
+            "tsConfig": "projects/chakray/utils/tsconfig.spec.json",
+            "karmaConfig": "projects/chakray/utils/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/chakray/utils/tsconfig.lib.json",
+              "projects/chakray/utils/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
