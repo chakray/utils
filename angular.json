@@ -27,7 +27,7 @@
               "src/assets",
               {
                 "glob": "404.html",
-                "input": "projects/chakray/utils/src/gh-spa",
+                "input": "projects/chakray/utils/gh-spa",
                 "output": "./"
               },
               {
@@ -40,7 +40,7 @@
               "src/styles.sass"
             ],
             "scripts": [
-              "src/utils/gh-spa.ts"
+              "projects/chakray/utils/gh-spa/redirect.ts"
             ],
             "es5BrowserSupport": true
           },
