@@ -18,7 +18,7 @@ files:
     - 'projects/**/*.s+(a|c)ss'
   ignore:
     - 'src/external/**/*.*'
-    - 'src/style/**/*.*'
+    - 'src/styles/**/*.*'
 # Rule Configuration
 rules:
   extends-before-mixins: 2
