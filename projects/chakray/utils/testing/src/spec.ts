@@ -23,4 +23,21 @@ export class Spec {
       fn(ref);
     });
   }
+  static pdr(Pdr, opts: any = {}, fn = (a) => {}) {
+    const ref = new Ref();
+    describe(Pdr.name, () => {
+      beforeEach(fakeAsync(() => {
+        const { providers = [], ...rest } = opts;
+        TestBed.configureTestingModule({
+          ...rest,
+          providers: [Pdr, ...providers],
+        }).compileComponents();
+        ref.pdr = TestBed.get(Pdr);
+      }));
+      it('is injectable', () => {
+        expect(ref.pdr).toBeTruthy();
+      });
+      fn(ref);
+    });
+  }
 }

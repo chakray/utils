@@ -1,4 +1,5 @@
 export class Ref {
+  pdr: any;
   tag: any;
   fixture: any;
   // [key: string]: any;

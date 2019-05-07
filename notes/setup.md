@@ -48,3 +48,11 @@ Spec.outline(Tag, (ref: Ref) => {
 
 ## gtag
 
+
+```
+import { gtagID } from '@chakray/utils/gtag';
+
+  providers: [
++    { provide: gtagID, useValue: env.gtagId }
+  ],
+```

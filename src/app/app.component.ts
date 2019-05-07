@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { Gtag } from '@chakray/utils/gtag';
 
 const mod = 'chakray/utils';
 @Component({
@@ -14,7 +15,8 @@ export class AppComponent {
     synopsis: 'Collection of common typescript libs',
     setup: { title: '', content: '' }
   };
-  constructor(private ti: Title,
+  constructor(private gtag: Gtag,
+              private ti: Title,
               private http: HttpClient) {
     ti.setTitle(this.data.mod);
     const url = `https://raw.githubusercontent.com/${mod}/master/notes/setup.md`;

@@ -163,7 +163,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/chakray/utils/src/test.ts",
+            "main": "projects/chakray/utils/test.ts",
             "tsConfig": "projects/chakray/utils/tsconfig.spec.json",
             "karmaConfig": "projects/chakray/utils/karma.conf.js"
           }
