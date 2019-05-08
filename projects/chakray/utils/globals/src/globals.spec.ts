@@ -1,45 +1,21 @@
 import { Globals } from './globals';
 
 describe(Globals.name, () => {
-  let mockWindow;
+  let mockWnd = {};
+  let mockDoc = {};
   let g: Globals;
-  const newGlobals = (wnd) => {
-    g = new Globals(wnd);
+  const newGlobals = (doc, wnd) => {
+    g = new Globals(doc, wnd);
   };
 
   beforeEach(() => {
-    mockWindow = {};
-    newGlobals(mockWindow);
+    newGlobals(mockDoc, mockWnd);
   });
 
-  it('.window equals to mockWindow', () => {
-    expect(g.window).toEqual(mockWindow);
+  it('.window to equal mockWnd', () => {
+    expect(g.window).toEqual(mockWnd);
   });
-  describe('when mockWindow.window defined', () => {
-    beforeEach(() => {
-      mockWindow.window = { another: 'window' };
-      newGlobals(mockWindow);
-    });
-    it('.window equals to mockWindow', () => {
-      expect(g.window).toEqual(mockWindow.window);
-    });
-  });
-  describe('when mockWindow.document defined', () => {
-    beforeEach(() => {
-      mockWindow.document = { document: 'interface' };
-      newGlobals(mockWindow);
-    });
-    it('.window equals to mockWindow', () => {
-      expect(g.document).toEqual(mockWindow.document);
-    });
-  });
-  describe('when mockWindow.localstorage defined', () => {
-    beforeEach(() => {
-      mockWindow.localStorage = { localStorage: 'interface' };
-      newGlobals(mockWindow);
-    });
-    it('.window equals to mockWindow', () => {
-      expect(g.localStorage).toEqual(mockWindow.localStorage);
-    });
+  it('.document to equal mockDoc', () => {
+    expect(g.document).toEqual(mockDoc);
   });
 });
