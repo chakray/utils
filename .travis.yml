@@ -11,12 +11,25 @@ before_install:
 install:
   - npm i
   - npm install codecov -g
-script:
-  - npm run lint
-  - npx ng build @$PJ_repo
-  - cp -rf $PJ_src/gh-spa $PJ_dist/
-  - npx ng test --watch=false --code-coverage
-  - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
+jobs:
+  - stage: lint
+    script: npm run lint
+  - stage: build
+    script:
+      - npx ng build @$PJ_repo
+      - cp -rf $PJ_src/gh-spa $PJ_dist/
+      - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
+  - stage: test
+    script:
+      - npx ng build @$PJ_repo
+      - cp -rf $PJ_src/gh-spa $PJ_dist/
+      - npx ng test --watch=false --code-coverage
+# script:
+#   - npm run lint
+#   - npx ng build @$PJ_repo
+#   - cp -rf $PJ_src/gh-spa $PJ_dist/
+#   - npx ng test --watch=false --code-coverage
+#   - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
 cache:
     directories:
       - node_modules
