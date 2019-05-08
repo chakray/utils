@@ -2,12 +2,11 @@ sudo: required
 language: node_js
 node_js:
     - 10.8.0
-env:
-  - PJ_repo=$PJ_scope/$PJ_name
-  - PJ_src=projects/$PJ_repo
-  - PJ_dist=dist/$PJ_repo
-  - demo_build=dist/demo${PJ_name^}
 before_install:
+  - export PJ_repo=$PJ_scope/$PJ_name
+  - export PJ_src=projects/$PJ_repo
+  - export PJ_dist=dist/$PJ_repo
+  - export demo_build=dist/demo${PJ_name^}
   - BUILD=`date +%s`; sed -ie "s/BUILD/$BUILD/g" ./src/environments/environment.prod.ts
 install:
   - npm i
