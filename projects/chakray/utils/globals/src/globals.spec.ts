@@ -13,9 +13,9 @@ describe(Globals.name, () => {
   });
 
   it('.window to equal mockWnd', () => {
-    expect(g.window).toEqual(mockWnd);
+    expect(g.window).toEqual(mockWnd as Window);
   });
   it('.document to equal mockDoc', () => {
-    expect(g.document).toEqual(mockDoc);
+    expect(g.document).toEqual(mockDoc as Document);
   });
 });
