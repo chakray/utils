@@ -16,7 +16,7 @@ export class Gtag {
     return this.g.window || {} as any;
   }
   get doc(): Document {
-    return this.g.document || {};
+    return this.g.document || {} as any;
   }
   constructor(private cfg: GtagConfig, private g: Globals) {
     this.init();
