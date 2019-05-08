@@ -2,6 +2,9 @@ sudo: required
 language: node_js
 node_js:
     - 10.8.0
+cache:
+    directories:
+      - node_modules
 before_install:
   - export PJ_repo=$PJ_scope/$PJ_name
   - export PJ_src=projects/$PJ_repo
@@ -17,23 +20,18 @@ stages:
   - deploy
 jobs:
   include:
-    - stage: prepare
-      script: true
+    # - stage: prepare
+    #   script: true
     - stage: test
       name: lint
       script: npm run lint
-    - stage: test
-      name: build
-      script:
-        - npx ng build @$PJ_repo
-        - cp -rf $PJ_src/gh-spa $PJ_dist/
-        - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
     - stage: test
       name: coverage
       script:
         - npx ng build @$PJ_repo
         - cp -rf $PJ_src/gh-spa $PJ_dist/
         - npx ng test --watch=false --code-coverage
+        # - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
       after_success:
         - npm install codecov -g
         - codecov
@@ -72,6 +70,3 @@ jobs:
 #   - cp -rf $PJ_src/gh-spa $PJ_dist/
 #   - npx ng test --watch=false --code-coverage
 #   - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
-cache:
-    directories:
-      - node_modules
