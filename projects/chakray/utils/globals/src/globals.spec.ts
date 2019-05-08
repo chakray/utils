@@ -1,8 +1,8 @@
 import { Globals } from './globals';
 
 describe(Globals.name, () => {
-  let mockWnd = {};
-  let mockDoc = {};
+  const mockWnd = {};
+  const mockDoc = {};
   let g: Globals;
   const newGlobals = (doc, wnd) => {
     g = new Globals(doc, wnd);
