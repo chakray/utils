@@ -13,18 +13,19 @@ install:
   - npm install codecov -g
 script: echo skipping npm test
 jobs:
-  - stage: lint
-    script: npm run lint
-  - stage: build
-    script:
-      - npx ng build @$PJ_repo
-      - cp -rf $PJ_src/gh-spa $PJ_dist/
-      - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
-  - stage: test
-    script:
-      - npx ng build @$PJ_repo
-      - cp -rf $PJ_src/gh-spa $PJ_dist/
-      - npx ng test --watch=false --code-coverage
+  include:
+    - stage: lint
+      script: npm run lint
+    - stage: build
+      script:
+        - npx ng build @$PJ_repo
+        - cp -rf $PJ_src/gh-spa $PJ_dist/
+        - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
+    - stage: test
+      script:
+        - npx ng build @$PJ_repo
+        - cp -rf $PJ_src/gh-spa $PJ_dist/
+        - npx ng test --watch=false --code-coverage
 # script:
 #   - npm run lint
 #   - npx ng build @$PJ_repo
