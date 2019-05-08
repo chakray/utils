@@ -6,7 +6,7 @@ import { windowToken } from './window.token';
 export class Globals {
   window: Window;
   document: Document;
-  constructor(@Inject(DOCUMENT) private doc: Document,
+  constructor(@Inject(DOCUMENT) private doc: any,
               @Inject(windowToken) private wnd: any) {
     this.document = doc;
     this.window = wnd;
