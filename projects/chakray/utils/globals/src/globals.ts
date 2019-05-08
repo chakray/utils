@@ -1,16 +1,14 @@
 import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { windowToken } from './window.token';
 
 @Injectable({ providedIn: 'root' })
 export class Globals {
   window: Window;
-  [key: string]: any;
-  constructor(@Inject(windowToken) wnd: any) {
-    Object.getOwnPropertyNames(wnd).forEach(k => {
-      this[k] = wnd[k];
-    });
-    if (!this.window) {
-      this.window = wnd;
-    }
+  document: Document;
+  constructor(@Inject(DOCUMENT) private doc: Document,
+              @Inject(windowToken) private wnd: any) {
+    this.document = doc;
+    this.window = wnd;
   }
 }
