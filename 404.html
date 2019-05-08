@@ -1,11 +1,17 @@
 <html>
 <head>
-  <meta http-equiv='refresh' content="0;URL='/utils'" />
   <title> No way ... </title>
 </head>
 <body>
-  <!-- <script> sessionStorage.redirect = location.href; </script> -->
-  <script> console.log('debugging', window) </script>
+  <script>
+    sessionStorage.redirect = location.href;
+    var pt = window.location.pathname.split('/')[1];
+    var mt = document.createElement('meta');
+    mt.setAttribute('http-equiv', 'refresh');
+    mt.setAttribute('content', '0;URL="/' + pt + '"');
+    var head = document.querySelector('head');
+    head.append(mt);
+  </script>
 </body>
 </html>
 
