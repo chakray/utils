@@ -24,8 +24,6 @@ __angular.json__
   ]
 ```
 
-cp node_modules/@chakray/utils/gh-spa/404.html src/404.html
-
 ## testing
 
 ```typescript

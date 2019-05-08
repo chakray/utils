@@ -15,7 +15,7 @@ export class Gtag {
   get wnd(): GtagWindow {
     return this.g.window || {} as any;
   }
-  get doc() {
+  get doc(): Document {
     return this.g.document || {};
   }
   constructor(private cfg: GtagConfig, private g: Globals) {
@@ -51,7 +51,6 @@ export class Gtag {
       const script = doc.createElement('script');
       script.async = true;
       script.src = url;
-      script.charset = 'utf8';
       head.appendChild(script);
       script.onload = resolve;
       script.onerror = reject;
