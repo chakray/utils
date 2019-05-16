@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import { HeadMod } from './head.mod';
 
 @Injectable({ providedIn: HeadMod })
@@ -12,7 +12,7 @@ export class Head {
     this.link({
       rel: 'stylesheet',
       type: 'text/css',
-      href: href });
+      href });
   }
   canonical(url?) {
     this.link({ rel: 'canonical', href: url || this.doc.URL });
