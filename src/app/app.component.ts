@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { Gtag } from '@chakray/utils/gtag';
+import { Head } from '@chakray/utils';
 
 const mod = 'chakray/utils';
 @Component({
@@ -15,9 +16,12 @@ export class AppComponent {
     synopsis: 'Collection of common typescript libs',
     setup: { title: '', content: '' }
   };
-  constructor(private gtag: Gtag,
-              private ti: Title,
-              private http: HttpClient) {
+  constructor(
+    private head: Head,
+    private gtag: Gtag,
+    private ti: Title,
+    private http: HttpClient) {
+    head.canonical();
     ti.setTitle(this.data.mod);
     const url = `https://raw.githubusercontent.com/${mod}/master/notes/setup.md`;
     http.get(url, { responseType: 'text' }).subscribe(d => {

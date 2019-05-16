@@ -54,3 +54,20 @@ import { gtagID } from '@chakray/utils/gtag';
 +    { provide: gtagID, useValue: env.gtagId }
   ],
 ```
+
+## head
+
+__module.ts__
+```
+import { UtilsMod } from '@chakray/utils';
+
+  imports: [UtilsMod],
+```
+
+__component.ts__
+```
+import { Head } from '@chakray/utils';
+  constructor(head: Head) {
+    head.canonical('current.url');
+  }
+```
