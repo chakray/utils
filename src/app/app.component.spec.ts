@@ -2,6 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { Spec } from '@chakray/utils/testing';
+import { UtilsMod } from '@chakray/utils';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
@@ -15,6 +16,7 @@ import { AppComponent as Tag } from './app.component';
 Spec.tag(Tag, {
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
+    UtilsMod,
     RouterTestingModule,
     HttpClientTestingModule
   ],
