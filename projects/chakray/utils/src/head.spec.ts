@@ -51,4 +51,10 @@ Spec.pdr(P, {
             expect(mockDoc.test).toEqual('touched');
         });
     });
+    ref.fn('script', () => {
+        it('with empty params', () => {
+            p.script({});
+            expect(mockDoc.test).toEqual('touched');
+        });
+    });
 });

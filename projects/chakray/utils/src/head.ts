@@ -18,10 +18,16 @@ export class Head {
     this.link({ rel: 'canonical', href: url || this.doc.URL });
   }
   link(attrs) {
-    const link: HTMLLinkElement = this.doc.createElement('link');
+    this.tag('link', attrs);
+  }
+  script(attrs) {
+    this.tag('script', attrs);
+  }
+  tag(name, attrs) {
+    const el: HTMLLinkElement = this.doc.createElement(name);
     Object.keys(attrs).forEach(k => {
-      link.setAttribute(k, attrs[k]);
+      el.setAttribute(k, attrs[k]);
     });
-    this.doc.head.appendChild(link);
+    this.doc.head.appendChild(el);
   }
 }
