@@ -1,6 +1,6 @@
 import { Spec } from '../testing/src/spec';
 
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import { Head as P } from './head';
 
 const mockDoc = {
