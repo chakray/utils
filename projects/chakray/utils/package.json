@@ -1,6 +1,6 @@
 {
   "name": "@chakray/utils",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
@@ -8,9 +8,8 @@
   "description": "A collection of ng dev utils",
   "license": "MIT",
   "keywords": [
-    "angular",
-    "utils",
-    "chakray"
+    "angular", "chakray", "utils",
+    "test helper", "gtag"
   ],
   "repository": {
     "type": "git",
